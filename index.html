@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Metamask Connection</title>
+
+<style>
+    body {
+        background-color: ghostwhite;
+        font-size: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+    }
+
+    button{
+        background-color: darkorange;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size:  40px;
+    }
+
+
+</style>
+</head>
+<body>  
+    <h1>Basic Frontend</h1>
+    <p>that i can connect metamask wallent to and execute all functions on the smart contract Goerli Testnetwork use</p>
+<button onclick="connectMetamask()">Connect Metamask</button>
+<p Id="accountArea"></p>
+    <script>
+        let account;
+        const connectMetamask  = async () => {
+            if(window.ethereum !== "undefined") {
+                const accounts = await ethereum.request({ method: "eth_requestAccounts"});
+                account = accounts[0];
+                document.getElementById("accountArea").innerHTML = account;
+
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
